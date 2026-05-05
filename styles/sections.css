@@ -227,9 +227,31 @@
     justify-content: center;
     background: rgba(17, 17, 17, 0.6);
     border-radius: 12px;
-    color: var(--color-primary);
-    font-size: 48px;
-    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    border: 1px solid var(--stroke-medium);
+}
+
+.stack-card:hover {
+    transform: scale(1.1) translateY(-10px);
+    background: rgba(57, 255, 20, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+    z-index: 2;
+}
+
+.stack-card i {
+    color: var(--color-primary) !important;
+    font-size: 60px; /* Force large size */
+    transition: all 0.3s;
+    display: block;
+}
+
+.stack-card:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--color-primary));
 }
 
 .interest-text { color: var(--color-text-white); font-size: 14px; }

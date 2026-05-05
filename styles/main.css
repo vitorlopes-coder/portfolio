@@ -122,10 +122,10 @@ body::after {
     display: flex;
     gap: 16px;
     width: max-content;
-    animation: scroll 20s linear infinite;
+    animation: scroll-marquee 20s linear infinite;
 }
 
-@keyframes scroll {
+@keyframes scroll-marquee {
     from { transform: translateX(0); }
     to { transform: translateX(calc(-50% - 8px)); }
 }
