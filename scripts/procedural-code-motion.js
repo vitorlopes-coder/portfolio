@@ -1,21 +1,17 @@
 /**
- * 3D ASCII Irregular Geometry
- * Simulates a rotating 3D cloud of characters projected into 2D space.
+ * Procedural ASCII Tree Growth
+ * Simulates a tree growing using terminal characters and recursive branching.
  */
-class ASCII3DGeometry {
+class ASCIITree {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         
-        this.points = [];
-        this.pointCount = 200;
-        this.angleX = 0;
-        this.angleY = 0;
-        this.angleZ = 0;
-        
-        // ASCII characters sorted by visual density
-        this.ascii = " .:-=+*#%@";
+        this.fontSize = 12;
+        this.phase = 0;
+        this.maxDepth = 6;
+        this.growth = 0; // 0 to 1
         
         this.init();
         this.animate();
@@ -25,96 +21,86 @@ class ASCII3DGeometry {
     init() {
         this.canvas.width = this.canvas.offsetWidth || 220;
         this.canvas.height = this.canvas.offsetHeight || 220;
+        this.ctx.font = `${this.fontSize}px 'JetBrains Mono', monospace`;
+    }
+
+    // Recursive function to draw ASCII branches
+    drawBranch(x, y, angle, length, depth) {
+        if (depth > this.maxDepth || length < 5) return;
+
+        // Apply growth factor to the current length
+        const currentLength = length * Math.min(1, this.growth * (this.maxDepth / (depth + 1)));
         
-        // Generate a 3D sphere with irregular offsets
-        this.points = [];
-        for (let i = 0; i < this.pointCount; i++) {
-            // Spherical coordinates
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.acos((Math.random() * 2) - 1);
-            
-            // Base radius + procedural irregularity
-            const baseRadius = 60;
-            const noise = Math.sin(theta * 3) * Math.cos(phi * 2) * 20;
-            const r = baseRadius + noise;
-            
-            this.points.push({
-                x: r * Math.sin(phi) * Math.cos(theta),
-                y: r * Math.sin(phi) * Math.sin(theta),
-                z: r * Math.cos(phi),
-                char: this.ascii[Math.floor(Math.random() * this.ascii.length)]
-            });
+        if (currentLength < 2) return;
+
+        const x2 = x + Math.cos(angle) * currentLength;
+        const y2 = y + Math.sin(angle) * currentLength;
+
+        // Choose character based on angle/depth
+        let char = "|";
+        if (depth === this.maxDepth) char = "*"; // Leaves
+        else if (angle < -Math.PI/2 - 0.2) char = "/";
+        else if (angle > -Math.PI/2 + 0.2) char = "\\";
+
+        // Draw the character
+        const alpha = 0.3 + (1 - depth / this.maxDepth) * 0.7;
+        this.ctx.fillStyle = `rgba(57, 255, 20, ${alpha})`;
+        this.ctx.fillText(char, x, y);
+
+        // Procedural variation for branching
+        if (this.growth > (depth / this.maxDepth)) {
+            const nextLength = length * 0.75;
+            // Left branch
+            this.drawBranch(x2, y2, angle - 0.4 + Math.sin(this.phase) * 0.1, nextLength, depth + 1);
+            // Right branch
+            this.drawBranch(x2, y2, angle + 0.4 + Math.cos(this.phase) * 0.1, nextLength, depth + 1);
         }
-        console.log("[DEBUG] 3D ASCII Initialized");
-    }
-
-    rotate(point) {
-        let {x, y, z} = point;
-
-        // Rotate X
-        let cosX = Math.cos(this.angleX);
-        let sinX = Math.sin(this.angleX);
-        let y1 = y * cosX - z * sinX;
-        let z1 = y * sinX + z * cosX;
-        y = y1; z = z1;
-
-        // Rotate Y
-        let cosY = Math.cos(this.angleY);
-        let sinY = Math.sin(this.angleY);
-        let x2 = x * cosY + z * sinY;
-        let z2 = -x * sinY + z * cosY;
-        x = x2; z = z2;
-
-        // Rotate Z
-        let cosZ = Math.cos(this.angleZ);
-        let sinZ = Math.sin(this.angleZ);
-        let x3 = x * cosZ - y * sinZ;
-        let y3 = x * sinZ + y * cosZ;
-        x = x3; y = y3;
-
-        return {x, y, z};
-    }
-
-    project(point) {
-        const perspective = 300;
-        const scale = perspective / (perspective + point.z);
-        const x2d = (point.x * scale) + (this.canvas.width / 2);
-        const y2d = (point.y * scale) + (this.canvas.height / 2);
-        return {x: x2d, y: y2d, scale, z: point.z};
     }
 
     animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // Clear with trail
+        this.ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+
+        // Draw the tree from the bottom center
+        const startX = this.canvas.width / 2;
+        const startY = this.canvas.height - 20;
         
-        // Sort points by depth (Z) for correct rendering (Painter's algorithm)
-        const transformedPoints = this.points.map(p => {
-            const rotated = this.rotate(p);
-            const projected = this.project(rotated);
-            return {...projected, char: p.char};
-        }).sort((a, b) => b.z - a.z);
+        // Grow the tree slowly
+        if (this.growth < 1.2) { // Grow slightly beyond 1 for full branch reveal
+            this.growth += 0.005;
+        } else {
+            // Reset growth after some time for an infinite loop effect
+            if (Math.random() > 0.995) this.growth = 0;
+        }
 
-        transformedPoints.forEach(p => {
-            // Brightness based on depth
-            const alpha = Math.max(0.1, (p.z + 100) / 200);
-            const size = Math.max(6, 14 * p.scale);
+        // Add a "wind" effect using phase
+        this.phase += 0.02;
 
-            this.ctx.fillStyle = `rgba(57, 255, 20, ${alpha})`;
-            this.ctx.font = `bold ${size}px 'JetBrains Mono'`;
-            
-            // Dynamic character based on position/depth
-            this.ctx.fillText(p.char, p.x, p.y);
-        });
+        this.drawBranch(startX, startY, -Math.PI / 2, 45, 0);
 
-        this.angleX += 0.01;
-        this.angleY += 0.015;
-        this.angleZ += 0.005;
+        // Terminal UI Decoration: Status line at the bottom
+        this.ctx.fillStyle = "rgba(57, 255, 20, 0.5)";
+        this.ctx.font = "9px 'JetBrains Mono'";
+        const progress = Math.min(100, Math.floor(this.growth * 100));
+        this.ctx.fillText(`SYSTEM_GROWTH: ${progress}%`, this.canvas.width / 2, this.canvas.height - 5);
+        
+        // Scanlines
+        this.ctx.fillStyle = "rgba(57, 255, 20, 0.03)";
+        for (let i = 0; i < this.canvas.height; i += 3) {
+            this.ctx.fillRect(0, i, this.canvas.width, 1);
+        }
 
+        this.ctx.font = `${this.fontSize}px 'JetBrains Mono', monospace`; // Reset font
         requestAnimationFrame(() => this.animate());
     }
 }
 
-// Global start
+// Start
 window.addEventListener('load', () => {
     const canvas = document.getElementById('motion-canvas');
-    if (canvas) new ASCII3DGeometry('motion-canvas');
+    if (canvas) new ASCIITree('motion-canvas');
 });
