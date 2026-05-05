@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Colors from Pencil Design */
+    --color-primary: #39FF14;
+    --color-secondary: #22C55E;
+    --color-status-online: #15803D;
+    --color-text-gray: #9CA3AF;
+    --color-text-light: #E5E7EB;
+    --color-text-white: #FFFFFF;
+    --color-text-dim: #D4D4D4;
+    
+    --bg-main: #000000;
+    --bg-card: rgba(6, 6, 6, 0.65); /* #060606A6 */
+    --bg-editor: rgba(10, 10, 10, 0.81); /* #0A0A0AD0 */
+    --bg-terminal: rgba(11, 11, 11, 0.7); /* #0B0B0BB3 */
+    --bg-header: rgba(18, 18, 18, 0.88); /* #121212E0 */
+    
+    --stroke-primary: #39FF14;
+    --stroke-dim: #123A12;
+    --stroke-medium: #1F6F1F;
+    --stroke-dark: #14532D;
+
+    --font-main: 'JetBrains Mono', monospace;
+    
+    --blur-standard: 14px;
+    --blur-heavy: 28px;
+    --radius-standard: 12px;
+    --radius-pill: 999px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-text-white);
+    font-family: var(--font-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Exact Background Gradient from Pencil bi8Au */
+    background: linear-gradient(160deg, #000000 0%, #0C1F14CC 55%, #000000 100%);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Glassmorphism Helper */
+.glass {
+    backdrop-filter: blur(var(--blur-standard));
+    -webkit-backdrop-filter: blur(var(--blur-standard));
+    border: 1px solid var(--stroke-dim);
+}
+
+/* Animations Utility */
+.typing-cursor::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Infinite Marquee */
+.marquee-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 8px)); }
+}
