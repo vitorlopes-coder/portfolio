@@ -38,14 +38,17 @@
 
 /* Matrix Card Styling */
 .procedural-code-motion {
-    width: 220px; /* Adjusted to 220x220 as requested */
+    width: 220px;
     height: 220px;
     background: rgba(0, 0, 0, 0.9);
     border: 1px solid var(--color-primary);
     border-radius: 16px;
     overflow: hidden;
     pointer-events: none;
-    flex-shrink: 0; /* Don't squash the card */
+    flex-shrink: 0; /* Important for flex items */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #motion-canvas {
