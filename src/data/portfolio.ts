@@ -154,11 +154,11 @@ export const portfolioData = {
     social: [
       { label: "@", url: "mailto:lopesvitor76@gmail.com", title: "Email (lopesvitor76@gmail.com)" },
       { label: "in", url: "https://www.linkedin.com/in/vitor-lopes-6802811b4/", title: "LinkedIn" },
-      { label: "gh", url: "https://github.com/vitorlopes-coder", title: "GitHub" },
+      { label: "git", url: "https://github.com/vitorlopes-coder", title: "GitHub" },
     ],
   },
   footer: {
-    command: 'vitor@ifpi:~$ sys_status --val=true',
+    command: '@vitorlopes-coder',
     build: "© 2026 Vitor | Graduando ADS (IFPI) | Engenharia de Software & IA",
   },
 };
