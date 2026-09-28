@@ -18,10 +18,6 @@ export const ProjectsSection: React.FC = () => {
           <span className="dot green" />
           <span className="projects-badge">SYS.PROJECTS // EXPERIÊNCIA_BACKEND</span>
         </div>
-        <div className="projects-status-pill">
-          <span className="pulse-dot" />
-          <span>STATUS: PRODUÇÃO // SAAS</span>
-        </div>
       </div>
 
       <div className="projects-content">
@@ -33,7 +29,7 @@ export const ProjectsSection: React.FC = () => {
           title="Clique para acessar o repositório no GitHub"
         >
           {/* Logo / Banner do Projeto */}
-          <div className="project-brand-box glass">
+          <div className="project-brand-box">
             <img
               src={project.logo}
               alt={`Logo do ${project.title}`}
