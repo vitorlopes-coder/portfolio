@@ -34,12 +34,12 @@ export const BioSection: React.FC = () => {
           <AsciiImage
             image={profilePhoto}
             fit="cover"
-            focusY={22}
-            columns={75}
-            contrast={120}
+            focusY={50}
+            columns={64}
+            contrast={100}
             inkColor="#ff2b3c"
             reveal={true}
-            revealOptions={{ size: 90, softness: 18 }}
+            revealOptions={{ size: 85, softness: 16 }}
           />
         </div>
         <div className="ascii-card-footer">
