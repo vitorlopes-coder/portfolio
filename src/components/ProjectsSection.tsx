@@ -29,7 +29,7 @@ export const ProjectsSection: React.FC = () => {
           title="Clique para acessar o repositório no GitHub"
         >
           {/* Logo / Banner do Projeto */}
-          <div className="project-brand-box">
+          <div className="project-brand-box glass">
             <img
               src={project.logo}
               alt={`Logo do ${project.title}`}

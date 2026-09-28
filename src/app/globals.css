@@ -629,25 +629,24 @@ body::after {
   height: 140px;
   flex-shrink: 0;
   border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--stroke-dim);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 24px;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  padding: 16px;
+  transition: border-color 0.3s;
 }
 
 .project-spotlight-card:hover .project-brand-box {
   border-color: var(--color-primary);
-  box-shadow: 0 0 20px rgba(255, 42, 59, 0.35);
 }
 
 .project-logo-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 42, 59, 0.2));
   transition: transform 0.3s ease;
 }
 
