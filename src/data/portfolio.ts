@@ -56,22 +56,6 @@ export const portfolioData = {
         ],
       },
       {
-        id: "pede_aqui.ts",
-        filename: "pede_aqui.ts",
-        link: {
-          url: "https://github.com/MailsonSousa88/pedeaqui",
-          label: "github.com/MailsonSousa88/pedeaqui",
-        },
-        lines: [
-          { type: "title", text: "// projeto & experiência: pedeAqui (SaaS)" },
-          { type: "content", text: "Atuação no desenvolvimento de Backend do pedeAqui — um SaaS de vitrine virtual para Instagram com catálogo interativo de produtos e processamento de pedidos." },
-          { type: "content", text: "Responsável pela arquitetura de APIs, integração com Supabase e regras de negócio para vitrine e pedidos." },
-          { type: "list", text: "• Backend: Node.js, Express, Supabase, TypeScript, REST APIs" },
-          { type: "list", text: "• Repositório: github.com/MailsonSousa88/pedeaqui" },
-          { type: "status", text: "// clique no botão abaixo para abrir o repositório" },
-        ],
-      },
-      {
         id: "stack_experience.ts",
         filename: "stack_experience.ts",
         lines: [
