@@ -22,6 +22,7 @@ export const portfolioData = {
       { label: "[terreno]", href: "#wire-terrain" },
       { label: "[bio]", href: "#bio" },
       { label: "[sobre]", href: "#about" },
+      { label: "[projetos]", href: "#projects" },
       { label: "[stacks]", href: "#stacks" },
       { label: "[contato]", href: "#contact" },
     ],
@@ -94,7 +95,7 @@ export const portfolioData = {
     ],
   },
   footer: {
-    command: 'obrigado pela visita',
+    command: '',
     build: "© 2026 | build: next-static-v1.0",
   },
 };

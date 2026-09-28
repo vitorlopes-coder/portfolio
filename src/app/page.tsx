@@ -1,6 +1,7 @@
 import { WireTerrainHero } from '@/components/WireTerrainHero';
 import { BioSection } from '@/components/BioSection';
 import { TerminalHero } from '@/components/TerminalHero';
+import { RoundCarouselSection } from '@/components/RoundCarouselSection';
 import { DescPanel } from '@/components/DescPanel';
 import { TechStacks } from '@/components/TechStacks';
 import { TerminalFooter } from '@/components/TerminalFooter';
@@ -17,13 +18,16 @@ export default function Home() {
       {/* 3. Hero Section com Terminal e Efeito Typewriter */}
       <TerminalHero />
 
-      {/* 4. Desc Panel (Janela de logs e comandos) */}
+      {/* 4. Meio do portfólio: Galeria 3D Round Carousel */}
+      <RoundCarouselSection />
+
+      {/* 5. Desc Panel (Janela de logs e comandos) */}
       <DescPanel />
 
-      {/* 5. Stacks com Marquee Infinito, Métricas e Redes Sociais */}
+      {/* 6. Stacks com Marquee Infinito, Métricas e Redes Sociais */}
       <TechStacks />
 
-      {/* 6. Rodapé com Predictive Arc */}
+      {/* 7. Rodapé com Predictive Arc */}
       <TerminalFooter />
     </>
   );
