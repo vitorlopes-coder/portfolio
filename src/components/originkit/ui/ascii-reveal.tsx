@@ -13,11 +13,14 @@ interface RevealOptions {
     softness: number;
 }
 
+const DEFAULT_RAMP =
+    " .'`^\",:;Il!i~+_-?][}{1)(|/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
+
 const DEFAULTS = {
     fit: "cover" as Fit,
-    focusY: 19,
-    columns: 200,
-    ramp: " .:-=+*#%@",
+    focusY: 50,
+    columns: 64,
+    ramp: DEFAULT_RAMP,
     invert: false,
     contrast: 100,
     colorMode: "mono" as ColorMode,
@@ -26,7 +29,21 @@ const DEFAULTS = {
     revealOptions: { size: 80, softness: 16 } as RevealOptions,
 };
 
-const contrastAt = (value: number) => 0.5 + (value / 100) * 2;
+const contrastAt = (value: number) => 0.5 + (value / 100) * 0.6;
+
+function hexToRgba(hex: string, alpha: number): string {
+    let clean = hex.replace("#", "");
+    if (clean.length === 3) {
+        clean = clean
+            .split("")
+            .map((c) => c + c)
+            .join("");
+    }
+    const r = parseInt(clean.substring(0, 2), 16) || 255;
+    const g = parseInt(clean.substring(2, 4), 16) || 42;
+    const b = parseInt(clean.substring(4, 6), 16) || 59;
+    return `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
+}
 
 const clampFocus = (value: number) =>
     Math.min(100, Math.max(0, typeof value === "number" ? value : 50));
@@ -188,8 +205,9 @@ export default function AsciiImage(props: AsciiImageProps) {
             const octx = off.getContext("2d");
             if (!octx) return;
             octx.clearRect(0, 0, off.width, off.height);
-            octx.font = fontPx.toFixed(2) + "px ui-monospace, monospace";
-            octx.textBaseline = "top";
+            octx.font = `${fontPx.toFixed(2)}px var(--font-jetbrains), "JetBrains Mono", ui-monospace, "Courier New", monospace`;
+            octx.textAlign = "center";
+            octx.textBaseline = "middle";
 
             const last = chars.length - 1;
             for (let r = 0; r < rows; r++) {
@@ -198,20 +216,27 @@ export default function AsciiImage(props: AsciiImageProps) {
                     const rr = data[i];
                     const gg = data[i + 1];
                     const bb = data[i + 2];
-                    let lum = (0.299 * rr + 0.587 * gg + 0.114 * bb) / 255;
+                    const rawLum = (0.299 * rr + 0.587 * gg + 0.114 * bb) / 255;
+                    // Correção gamma para resgatar sombras, tons de pele e detalhes faciais
+                    let lum = Math.pow(rawLum, 0.72);
                     lum = (lum - 0.5) * punch + 0.5;
                     if (invert) lum = 1 - lum;
-                    lum = lum < 0 ? 0 : lum > 1 ? 1 : lum;
+                    lum = Math.max(0, Math.min(1, lum));
                     const ch = chars[Math.round(lum * last)];
                     if (ch === " ") continue;
-                    octx.fillStyle =
-                        colorMode === "image"
-                            ? `rgb(${Math.min(255, rr + 30)}, ${Math.min(
-                                  255,
-                                  gg + 30
-                              )}, ${Math.min(255, bb + 30)})`
+                    if (colorMode === "image") {
+                        octx.fillStyle = `rgb(${Math.min(255, rr + 30)}, ${Math.min(
+                            255,
+                            gg + 30
+                        )}, ${Math.min(255, bb + 30)})`;
+                    } else {
+                        // Alpha dinâmico baseado na luminosidade para profundidade e definição fotográfica
+                        const alpha = Math.min(1, Math.max(0.25, Math.pow(lum, 0.75) * 1.05));
+                        octx.fillStyle = inkColor.startsWith("#")
+                            ? hexToRgba(inkColor, alpha)
                             : inkColor;
-                    octx.fillText(ch, c * cellW, r * cellH);
+                    }
+                    octx.fillText(ch, c * cellW + cellW / 2, r * cellH + cellH / 2);
                 }
             }
 
