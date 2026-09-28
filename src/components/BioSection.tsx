@@ -65,6 +65,21 @@ export const BioSection: React.FC = () => {
               {line.text}
             </div>
           ))}
+
+          {activeTab.link && (
+            <div className="tab-link-wrapper">
+              <a
+                href={activeTab.link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tab-repo-btn glass"
+              >
+                <span className="btn-icon">⚡</span>
+                <span>{activeTab.link.label}</span>
+                <span className="btn-arrow">↗</span>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>

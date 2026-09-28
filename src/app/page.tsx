@@ -3,6 +3,7 @@
 import { WireTerrainHero } from '@/components/WireTerrainHero';
 import { BioSection } from '@/components/BioSection';
 import { TerminalHero } from '@/components/TerminalHero';
+import { ProjectsSection } from '@/components/ProjectsSection';
 import { SmoothScrollSliderSection } from '@/components/SmoothScrollSliderSection';
 import { DescPanel } from '@/components/DescPanel';
 import { TechStacks } from '@/components/TechStacks';
@@ -20,7 +21,10 @@ export default function Home() {
       {/* 3. Hero Section com Terminal e Efeito Typewriter */}
       <TerminalHero />
 
-      {/* 4. Meio do portfólio: Smooth Scroll Slider */}
+      {/* 4. Projeto em Destaque: pedeAqui (SaaS Vitrine Virtual) */}
+      <ProjectsSection />
+
+      {/* 5. Meio do portfólio: Galeria Visual */}
       <SmoothScrollSliderSection />
 
       {/* 5. Desc Panel (Janela de logs e comandos) */}

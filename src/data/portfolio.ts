@@ -6,10 +6,23 @@ export interface TechStack {
 export interface TabContent {
   id: string;
   filename: string;
+  link?: { url: string; label: string };
   lines: Array<{
     type: 'title' | 'content' | 'status' | 'list';
     text: string;
   }>;
+}
+
+export interface ProjectItem {
+  id: string;
+  title: string;
+  badge: string;
+  role: string;
+  logo: string;
+  githubUrl: string;
+  description: string;
+  responsibilities: string[];
+  tags: string[];
 }
 
 export const portfolioData = {
@@ -22,6 +35,7 @@ export const portfolioData = {
       { label: "[terreno]", href: "#wire-terrain" },
       { label: "[bio]", href: "#bio" },
       { label: "[sobre]", href: "#about" },
+      { label: "[projetos]", href: "#projects" },
       { label: "[galeria]", href: "#gallery" },
       { label: "[stacks]", href: "#stacks" },
       { label: "[contato]", href: "#contact" },
@@ -39,6 +53,22 @@ export const portfolioData = {
           { type: "content", text: "Sou Vitor, graduando em Análise e Desenvolvimento de Sistemas do Instituto Federal do Piauí (IFPI), atualmente inclinando meus estudos para a área de desenvolvimento de software para web." },
           { type: "content", text: "Sempre gostei de saber como tudo funciona por debaixo dos panos e agora na programação e com o advento da IA estou cada vez mais empolgado em arquitetar soluções de verdade que usam engenharia de software de alto nível e impactam o mundo à minha volta." },
           { type: "status", text: "// em busca constante de excelência técnica e impacto real" },
+        ],
+      },
+      {
+        id: "pede_aqui.ts",
+        filename: "pede_aqui.ts",
+        link: {
+          url: "https://github.com/MailsonSousa88/pedeaqui",
+          label: "github.com/MailsonSousa88/pedeaqui",
+        },
+        lines: [
+          { type: "title", text: "// projeto & experiência: pedeAqui (SaaS)" },
+          { type: "content", text: "Atuação no desenvolvimento de Backend do pedeAqui — um SaaS de vitrine virtual para Instagram com catálogo interativo de produtos e processamento de pedidos." },
+          { type: "content", text: "Responsável pela arquitetura de APIs, modelagem de banco de dados relacional e regras de negócio para vitrine e pedidos." },
+          { type: "list", text: "• Backend: Node.js, Express, PostgreSQL, TypeScript, REST APIs" },
+          { type: "list", text: "• Repositório: github.com/MailsonSousa88/pedeaqui" },
+          { type: "status", text: "// clique no botão abaixo para abrir o repositório" },
         ],
       },
       {
@@ -68,6 +98,23 @@ export const portfolioData = {
       },
     ] as TabContent[],
   },
+  projects: [
+    {
+      id: "pedeaqui",
+      title: "pedeAqui",
+      badge: "SAAS // VITRINE VIRTUAL PARA INSTAGRAM",
+      role: "Desenvolvimento Backend",
+      logo: "/assets/projects/pedeAqui.png",
+      githubUrl: "https://github.com/MailsonSousa88/pedeaqui",
+      description: "SaaS de vitrine virtual para Instagram desenvolvido para criar catálogos interativos de produtos, otimizar a experiência de compra e centralizar o recebimento e gestão de pedidos em tempo real.",
+      responsibilities: [
+        "Arquitetura e desenvolvimento de APIs RESTful robustas e escaláveis",
+        "Modelagem relacional de dados e queries otimizadas em PostgreSQL",
+        "Regras de negócio para pedidos, checkout simplificado e catálogo",
+      ],
+      tags: ["Node.js", "Express", "PostgreSQL", "TypeScript", "REST API"],
+    },
+  ] as ProjectItem[],
   logPanel: {
     title: "README.md",
     status: "[INFO] perfil do desenvolvedor carregado // IFPI - ADS",
