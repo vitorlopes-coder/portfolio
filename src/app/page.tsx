@@ -14,7 +14,7 @@ export default function Home() {
       {/* 1. Topo da página: Wire Terrain 3D */}
       <WireTerrainHero />
 
-      {/* 2. Logo abaixo: Imagem com ASCII Reveal + Descrição à direita */}
+      {/* 2. Logo abaixo: Foto de perfil + Abas de código à direita */}
       <BioSection />
 
       {/* 3. Hero Section com Terminal e Efeito Typewriter */}
@@ -29,7 +29,7 @@ export default function Home() {
       {/* 6. Stacks com Marquee Infinito, Métricas e Redes Sociais */}
       <TechStacks />
 
-      {/* 7. Rodapé com Predictive Arc */}
+      {/* 7. Rodapé com Fibre Arc */}
       <TerminalFooter />
     </>
   );
