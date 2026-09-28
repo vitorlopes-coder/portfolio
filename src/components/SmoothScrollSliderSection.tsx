@@ -38,13 +38,13 @@ export const SmoothScrollSliderSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="smooth-scroll-slider-section glass" id="projects">
+    <section className="smooth-scroll-slider-section glass" id="gallery">
       <div className="slider-top-bar">
         <div className="slider-dots">
           <span className="dot red" />
           <span className="dot yellow" />
           <span className="dot green" />
-          <span className="slider-title">SYS.GALLERY // PROJETOS &amp; ENGENHARIA</span>
+          <span className="slider-title">SYS.GALLERY // GALERIA VISUAL</span>
         </div>
         <div className="slider-status-badge">
           <span className="pulse-dot" />
@@ -69,8 +69,8 @@ export const SmoothScrollSliderSection: React.FC = () => {
         />
 
         <div className="slider-overlay-hint">
-          <span className="hint-tag">[ ENGENHARIA &amp; PROJETOS ]</span>
-          <span className="hint-text">Arraste horizontalmente para navegar pelas interfaces e projetos</span>
+          <span className="hint-tag">[ GALERIA VISUAL ]</span>
+          <span className="hint-text">Arraste horizontalmente para navegar pela galeria</span>
         </div>
       </div>
     </section>

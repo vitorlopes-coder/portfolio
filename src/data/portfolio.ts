@@ -22,7 +22,7 @@ export const portfolioData = {
       { label: "[terreno]", href: "#wire-terrain" },
       { label: "[bio]", href: "#bio" },
       { label: "[sobre]", href: "#about" },
-      { label: "[projetos]", href: "#projects" },
+      { label: "[galeria]", href: "#gallery" },
       { label: "[stacks]", href: "#stacks" },
       { label: "[contato]", href: "#contact" },
     ],
@@ -69,7 +69,7 @@ export const portfolioData = {
     ] as TabContent[],
   },
   logPanel: {
-    title: "vitor_profile.log - zsh",
+    title: "README.md",
     status: "[INFO] perfil do desenvolvedor carregado // IFPI - ADS",
     description: "Sou Vitor, graduando em Análise e Desenvolvimento de Sistemas (IFPI). Construo sistemas de backend com TypeScript, Node.js, Express e PostgreSQL, e interfaces com React e React Native. Direciono meus estudos à engenharia de software de alto nível e à integração de sistemas a LLMs via RAG, Fine-Tuning e MCPs com foco em testes, valor real e segurança.",
     commands: [
