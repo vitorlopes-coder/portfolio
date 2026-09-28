@@ -9,9 +9,28 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Terminal & Code',
-  description: 'Portfólio interativo para desenvolvedor frontend com estética terminal e cyberpunk stained-glass.',
-  keywords: ['portfolio', 'frontend', 'developer', 'react', 'nextjs', 'typescript'],
+  title: 'Vitor | Desenvolvedor de Software & IA (IFPI)',
+  description: 'Portfólio de Vitor - Graduando em Análise e Desenvolvimento de Sistemas no IFPI. Backend com TypeScript, Node.js, Express e PostgreSQL, frontend com React e React Native, e integração de sistemas a LLMs (RAG, Fine-Tuning, MCPs).',
+  keywords: [
+    'Vitor',
+    'IFPI',
+    'ADS',
+    'desenvolvedor web',
+    'software engineer',
+    'backend',
+    'Node.js',
+    'TypeScript',
+    'JavaScript',
+    'Express',
+    'PostgreSQL',
+    'React',
+    'React Native',
+    'IA generativa',
+    'LLMs',
+    'RAG',
+    'Fine-Tuning',
+    'MCP',
+  ],
   authors: [{ name: 'Vitor' }],
 };
 
