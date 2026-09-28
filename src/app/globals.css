@@ -520,9 +520,9 @@ body::after {
 }
 
 /* ==========================================================================
-   4. Round Carousel Section (3D Cylinder Gallery no Meio do Portfólio)
+   4. Smooth Scroll Slider Section (Galeria Interativa no Meio do Portfólio)
    ========================================================================== */
-.round-carousel-section {
+.smooth-scroll-slider-section {
   position: relative;
   border-radius: var(--radius-standard);
   background: var(--bg-card);
@@ -533,7 +533,7 @@ body::after {
   box-shadow: 0 0 25px rgba(255, 42, 59, 0.08);
 }
 
-.carousel-top-bar {
+.slider-top-bar {
   background: var(--bg-header);
   padding: 10px 16px;
   display: flex;
@@ -544,13 +544,13 @@ body::after {
   gap: 8px;
 }
 
-.carousel-dots {
+.slider-dots {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.carousel-title {
+.slider-title {
   color: var(--color-primary);
   font-size: 12px;
   font-weight: 700;
@@ -558,7 +558,7 @@ body::after {
   margin-left: 6px;
 }
 
-.carousel-status-badge {
+.slider-status-badge {
   font-size: 11px;
   color: var(--color-primary);
   display: flex;
@@ -570,10 +570,10 @@ body::after {
   border: 1px solid var(--stroke-dim);
 }
 
-.carousel-viewport {
+.slider-viewport {
   position: relative;
   width: 100%;
-  height: 390px;
+  height: 480px;
   background: #000000;
   overflow: hidden;
   display: flex;
@@ -581,20 +581,29 @@ body::after {
   justify-content: center;
 }
 
-.carousel-overlay-hint {
+.slider-overlay-hint {
   position: absolute;
-  bottom: 12px;
-  right: 14px;
+  bottom: 14px;
+  right: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
   background: rgba(10, 5, 7, 0.85);
   backdrop-filter: blur(8px);
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--stroke-medium);
   pointer-events: none;
   z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .slider-viewport {
+    height: 380px;
+  }
+  .slider-overlay-hint {
+    display: none;
+  }
 }
 
 /* ==========================================================================
