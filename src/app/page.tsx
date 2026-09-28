@@ -1,0 +1,30 @@
+import { WireTerrainHero } from '@/components/WireTerrainHero';
+import { BioSection } from '@/components/BioSection';
+import { TerminalHero } from '@/components/TerminalHero';
+import { DescPanel } from '@/components/DescPanel';
+import { TechStacks } from '@/components/TechStacks';
+import { TerminalFooter } from '@/components/TerminalFooter';
+
+export default function Home() {
+  return (
+    <>
+      {/* 1. Topo da página: Wire Terrain 3D */}
+      <WireTerrainHero />
+
+      {/* 2. Logo abaixo: Imagem com ASCII Reveal + Descrição à direita */}
+      <BioSection />
+
+      {/* 3. Hero Section com Terminal e Efeito Typewriter */}
+      <TerminalHero />
+
+      {/* 4. Desc Panel (Janela de logs e comandos) */}
+      <DescPanel />
+
+      {/* 5. Stacks com Marquee Infinito, Métricas e Redes Sociais */}
+      <TechStacks />
+
+      {/* 6. Rodapé com Predictive Arc */}
+      <TerminalFooter />
+    </>
+  );
+}
