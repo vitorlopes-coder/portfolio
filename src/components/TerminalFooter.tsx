@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { portfolioData } from '@/data/portfolio';
-import PredictiveArc from './originkit/ui/predictive-arc';
+import FibreArc from './originkit/ui/fibre-arc';
 
 export const TerminalFooter: React.FC = () => {
   const { footer } = portfolioData;
@@ -12,21 +12,23 @@ export const TerminalFooter: React.FC = () => {
       <div className="footer-top-bar">
         <div className="footer-status-pill">
           <span className="pulse-dot" />
-          <span>PREDICTIVE_ARC // PARTICLE_FIELD</span>
+          <span>FIBRE_ARC // OPTICAL_FIELD</span>
         </div>
         <div className="footer-tag">SYS.EXIT // V1.0</div>
       </div>
 
       <div className="footer-arc-wrapper">
-        <PredictiveArc
+        <FibreArc
           background="#000000"
           baseColor="#ff1744"
-          accentColor="#ff6b7b"
+          accentColor="#ff4d61"
           highlight="#ffffff"
-          density={80}
-          dotSize={110}
+          density={26}
           speed={65}
-          height={260}
+          direction={0}
+          hover={180}
+          reach={25}
+          bundle={{ curve: 160, spread: 110, thickness: 110, comb: 180 }}
           style={{ width: '100%', height: '260px' }}
         />
 
