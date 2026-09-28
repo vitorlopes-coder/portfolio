@@ -1,3 +1,5 @@
+'use client';
+
 import { WireTerrainHero } from '@/components/WireTerrainHero';
 import { BioSection } from '@/components/BioSection';
 import { TerminalHero } from '@/components/TerminalHero';

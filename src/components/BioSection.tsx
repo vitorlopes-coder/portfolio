@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { portfolioData } from '@/data/portfolio';
 import AsciiImage from './originkit/ui/ascii-reveal';
-import profilePhoto from '@assets/Screenshot_2025-01-05-17-12-26-049_com.miui.gallery~2.jpg';
+
+const profilePhoto = '/assets/Screenshot_2025-01-05-17-12-26-049_com.miui.gallery~2.jpg';
 
 export const BioSection: React.FC = () => {
   const { bio } = portfolioData;
