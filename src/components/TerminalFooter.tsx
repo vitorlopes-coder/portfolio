@@ -19,17 +19,17 @@ export const TerminalFooter: React.FC = () => {
 
       <div className="footer-arc-wrapper">
         <FibreArc
-          background="#000000"
+          background="#040102"
           baseColor="#ff1744"
           accentColor="#ff4d61"
           highlight="#ffffff"
           density={26}
-          speed={65}
+          speed={60}
           direction={0}
-          hover={180}
-          reach={25}
-          bundle={{ curve: 160, spread: 110, thickness: 110, comb: 180 }}
-          style={{ width: '100%', height: '260px' }}
+          hover={200}
+          reach={35}
+          bundle={{ curve: 95, spread: 130, thickness: 175, comb: 190 }}
+          style={{ width: '100%', height: '340px' }}
         />
 
         <div className="footer-overlay-content">
