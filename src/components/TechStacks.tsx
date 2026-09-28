@@ -46,10 +46,6 @@ export const TechStacks: React.FC = () => {
           <span className="category-tag">FRONTEND &amp; MOBILE</span>
           <span className="category-items">React • React Native • Next.js • JavaScript</span>
         </div>
-        <div className="stack-category-card glass highlight-ai">
-          <span className="category-tag">IA GENERATIVA</span>
-          <span className="category-items">RAG • Fine-Tuning • MCPs • Testes &amp; Segurança</span>
-        </div>
       </div>
 
       <div className="metrics-row">
