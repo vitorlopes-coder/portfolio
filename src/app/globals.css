@@ -264,7 +264,8 @@ body::after {
   align-items: stretch;
 }
 
-/* Profile ASCII Card */
+/* Profile Photo Card */
+.profile-photo-card,
 .profile-ascii-card {
   width: 320px;
   border-radius: var(--radius-standard);
@@ -278,11 +279,13 @@ body::after {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.profile-photo-card:hover,
 .profile-ascii-card:hover {
   border-color: var(--color-primary);
-  box-shadow: 0 0 25px rgba(255, 42, 59, 0.2);
+  box-shadow: 0 0 25px rgba(255, 42, 59, 0.25);
 }
 
+.photo-card-header,
 .ascii-card-header {
   background: var(--bg-header);
   padding: 10px 12px;
@@ -292,12 +295,14 @@ body::after {
   border-bottom: 1px solid var(--stroke-medium);
 }
 
+.photo-file-name,
 .ascii-file-name {
   color: var(--color-primary);
   font-size: 11px;
   font-weight: 700;
 }
 
+.photo-badge,
 .ascii-badge {
   font-size: 10px;
   color: var(--color-secondary);
@@ -307,6 +312,7 @@ body::after {
   border: 1px solid var(--stroke-dim);
 }
 
+.photo-img-wrapper,
 .ascii-canvas-wrapper {
   position: relative;
   width: 100%;
@@ -315,23 +321,17 @@ body::after {
   overflow: hidden;
 }
 
-.ascii-card-footer {
-  background: var(--bg-header);
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-top: 1px solid var(--stroke-dim);
+.profile-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.ascii-hint-icon {
-  color: var(--color-primary);
-  font-size: 10px;
-}
-
-.ascii-hint-text {
-  color: var(--color-text-gray);
-  font-size: 11px;
+.profile-photo-card:hover .profile-photo-img {
+  transform: scale(1.03);
 }
 
 .bio-content {
@@ -1044,9 +1044,11 @@ body::after {
   .bio-section {
     flex-direction: column;
   }
+  .profile-photo-card,
   .profile-ascii-card {
     width: 100%;
   }
+  .photo-img-wrapper,
   .ascii-canvas-wrapper {
     height: 320px;
   }

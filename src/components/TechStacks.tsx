@@ -39,15 +39,15 @@ export const TechStacks: React.FC = () => {
       {/* Categorias limpas e escaneáveis (redução drástica de carga cognitiva) */}
       <div className="stack-categories-grid">
         <div className="stack-category-card glass">
-          <span className="category-tag">⚡ BACKEND</span>
+          <span className="category-tag">BACKEND</span>
           <span className="category-items">Node.js • Express • PostgreSQL • TypeScript</span>
         </div>
         <div className="stack-category-card glass">
-          <span className="category-tag">📱 FRONTEND &amp; MOBILE</span>
+          <span className="category-tag">FRONTEND &amp; MOBILE</span>
           <span className="category-items">React • React Native • Next.js • JavaScript</span>
         </div>
         <div className="stack-category-card glass highlight-ai">
-          <span className="category-tag">🧠 IA GENERATIVA</span>
+          <span className="category-tag">IA GENERATIVA</span>
           <span className="category-items">RAG • Fine-Tuning • MCPs • Testes &amp; Segurança</span>
         </div>
       </div>

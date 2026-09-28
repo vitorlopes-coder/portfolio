@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { portfolioData } from '@/data/portfolio';
-import AsciiImage from './originkit/ui/ascii-reveal';
 
 const profilePhoto = '/assets/Screenshot_2025-01-05-17-12-26-049_com.miui.gallery~2.jpg';
 
@@ -24,27 +23,18 @@ export const BioSection: React.FC = () => {
 
   return (
     <section className="bio-section glass" id="bio">
-      {/* Imagem com componente ASCII Reveal interativo */}
-      <div className="profile-ascii-card glass">
-        <div className="ascii-card-header">
-          <span className="ascii-file-name">// vitor_avatar.raw</span>
-          <span className="ascii-badge">ASCII-REVEAL</span>
+      {/* Imagem de perfil original limpa e de alta resolução */}
+      <div className="profile-photo-card glass">
+        <div className="photo-card-header">
+          <span className="photo-file-name">// vitor_avatar.jpg</span>
+          <span className="photo-badge">PROFILE</span>
         </div>
-        <div className="ascii-canvas-wrapper">
-          <AsciiImage
-            image={profilePhoto}
-            fit="cover"
-            focusY={50}
-            columns={64}
-            contrast={100}
-            inkColor="#ff2b3c"
-            reveal={true}
-            revealOptions={{ size: 85, softness: 16 }}
+        <div className="photo-img-wrapper">
+          <img
+            src={profilePhoto}
+            alt="Foto de perfil de Vitor"
+            className="profile-photo-img"
           />
-        </div>
-        <div className="ascii-card-footer">
-          <span className="ascii-hint-icon">◉</span>
-          <span className="ascii-hint-text">Passe o cursor para revelar a foto original</span>
         </div>
       </div>
 
