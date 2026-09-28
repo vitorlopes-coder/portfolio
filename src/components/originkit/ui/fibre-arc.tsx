@@ -65,15 +65,15 @@ void main(){
     float yc = ay - k * dx * dx;
     float sl = -2.0 * k * dx;
     float dd = abs(ps.y - yc) / sqrt(1.0 + sl * sl);
-    float w = uThin * (0.0030 + 0.0050 * jit);
-    core += on * pw(w / (w + dd), 2.7);
-    halo += on * pw(w * 14.0 / (w * 14.0 + dd), 1.8) * 0.16;
+    float w = uThin * (0.0016 + 0.0032 * jit);
+    core += on * pw(w / (w + dd), 3.2);
+    halo += on * pw(w * 11.0 / (w * 11.0 + dd), 1.9) * 0.085;
   }
   float env = clamp(1.1 - 0.28 * (abs(ps.x) / max(ar * 0.5, 1.0)), 0.55, 1.0);
   core *= env; halo *= env;
   vec3 col = uBg;
-  col += uBase * halo * 2.2;
-  col += mix(uAccent, uHigh, sat(core * 0.75)) * core * 1.8;
+  col += uBase * halo * 1.5;
+  col += mix(uAccent, uHigh, sat(core * 0.75)) * core * 1.4;
   gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
 }
 `

@@ -1261,7 +1261,7 @@ body::after {
   position: relative;
   width: 100%;
   height: 340px;
-  background: #040102;
+  background: #000000;
   overflow: hidden;
 }
 
