@@ -11,9 +11,15 @@ export const TechStacks: React.FC = () => {
 
   return (
     <section className="main-section glass" id="stacks">
-      <h2 className="section-title">{stacks.title}</h2>
-      <p className="section-desc">{stacks.description}</p>
-      <div className="status-line">{stacks.statusLine}</div>
+      <div className="section-header-compact">
+        <div className="terminal-dots">
+          <span className="dot red" />
+          <span className="dot yellow" />
+          <span className="dot green" />
+          <span className="stacks-badge">SYS.STACKS // CORE_ECOSYSTEM</span>
+        </div>
+        <h2 className="section-title-compact">Tecnologias &amp; Especialidades</h2>
+      </div>
 
       <div className="stacks-viewport">
         <div className="marquee-track" id="stacks-track">
@@ -30,15 +36,21 @@ export const TechStacks: React.FC = () => {
         </div>
       </div>
 
-      <p className="interest-text">{stacks.interestText}</p>
-
-      <div className="description-box glass">
-        {stacks.highlights.map((highlight, idx) => (
-          <p key={idx}>{highlight}</p>
-        ))}
+      {/* Categorias limpas e escaneáveis (redução drástica de carga cognitiva) */}
+      <div className="stack-categories-grid">
+        <div className="stack-category-card glass">
+          <span className="category-tag">⚡ BACKEND</span>
+          <span className="category-items">Node.js • Express • PostgreSQL • TypeScript</span>
+        </div>
+        <div className="stack-category-card glass">
+          <span className="category-tag">📱 FRONTEND &amp; MOBILE</span>
+          <span className="category-items">React • React Native • Next.js • JavaScript</span>
+        </div>
+        <div className="stack-category-card glass highlight-ai">
+          <span className="category-tag">🧠 IA GENERATIVA</span>
+          <span className="category-items">RAG • Fine-Tuning • MCPs • Testes &amp; Segurança</span>
+        </div>
       </div>
-
-      <div className="anim-hint">{stacks.animationHint}</div>
 
       <div className="metrics-row">
         {stacks.metrics.map((metric, idx) => (
@@ -63,7 +75,6 @@ export const TechStacks: React.FC = () => {
           </a>
         ))}
       </div>
-      <div className="contact-hint">contato rápido</div>
     </section>
   );
 };
