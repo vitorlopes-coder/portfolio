@@ -105,9 +105,9 @@ export const portfolioData = {
       { label: "DIRETRIZ", value: "Testes & Segurança" },
     ],
     social: [
-      { label: "@", url: "mailto:contato@vitor.dev", title: "Email" },
-      { label: "in", url: "https://linkedin.com", title: "LinkedIn" },
-      { label: "gh", url: "https://github.com", title: "GitHub" },
+      { label: "@", url: "mailto:lopesvitor76@gmail.com", title: "Email (lopesvitor76@gmail.com)" },
+      { label: "in", url: "https://www.linkedin.com/in/vitor-lopes-6802811b4/", title: "LinkedIn" },
+      { label: "gh", url: "https://github.com/vitorlopes-coder", title: "GitHub" },
     ],
   },
   footer: {
