@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SmoothScrollSlider from './originkit/ui/smooth-scroll-slider';
 
 // Imagens estritamente da pasta assets/gallery/ conforme solicitado
@@ -14,6 +14,29 @@ const GALLERY_ITEMS = [
 ];
 
 export const SmoothScrollSliderSection: React.FC = () => {
+  // Ajuste de largura aumentada e altura reduzida com responsividade
+  const [cardSize, setCardSize] = useState({ width: 550, height: 290 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenW = window.innerWidth;
+      if (screenW < 640) {
+        setCardSize({
+          width: Math.min(Math.round(screenW * 0.85), 360),
+          height: 200,
+        });
+      } else if (screenW < 1024) {
+        setCardSize({ width: 460, height: 250 });
+      } else {
+        setCardSize({ width: 550, height: 290 });
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section className="smooth-scroll-slider-section glass" id="projects">
       <div className="slider-top-bar">
@@ -32,13 +55,13 @@ export const SmoothScrollSliderSection: React.FC = () => {
       <div className="slider-viewport">
         <SmoothScrollSlider
           images={GALLERY_ITEMS}
-          slideWidth={380}
-          slideHeight={380}
+          slideWidth={cardSize.width}
+          slideHeight={cardSize.height}
           spacing={3}
           direction="right"
           smoothness={8}
           radius={16}
-          dim={5}
+          dim={4}
           background="#000000"
           sensitivity={6}
           loop={true}
