@@ -28,8 +28,8 @@ export const TerminalFooter: React.FC = () => {
           direction={0}
           hover={180}
           reach={25}
-          bundle={{ curve: 95, spread: 110, thickness: 110, comb: 180 }}
-          style={{ width: '100%', height: '340px' }}
+          bundle={{ curve: 160, spread: 110, thickness: 110, comb: 180 }}
+          style={{ width: '100%', height: '260px' }}
         />
 
         <div className="footer-overlay-content">

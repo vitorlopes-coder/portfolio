@@ -44,13 +44,13 @@ void main(){
   vec2 uv = gl_FragCoord.xy / uRes;
   vec2 p = (uv - 0.5) * vec2(ar, 1.0);
   float t = uTime;
-  vec2 apex = vec2(0.0, 0.16);
+  vec2 apex = vec2(0.34, 0.20);
 
   float cs = cos(uDir), sn = sin(uDir);
   mat2 rot = mat2(cs, sn, -sn, cs);
   vec2 q  = rot * p;
   vec2 pm = q - rot * ((uMouse - 0.5) * vec2(ar, 1.0));
-  vec2 ps = q - normalize(pm + vec2(1e-5)) * uComb * 0.12 * sat(uHover)
+  vec2 ps = q - normalize(pm + vec2(1e-5)) * uComb * 0.10 * sat(uHover)
             * exp(-dot(pm, pm) / max(uReach * uReach, 1e-4));
   float core = 0.0, halo = 0.0;
   for(int i = 0; i < 26; i++){
@@ -58,8 +58,8 @@ void main(){
     float f = fi / 25.0;
     float on = sat(uStrands - fi);
     float jit = hash21(vec2(fi, 1.7));
-    float k = uCurve * (0.30 + 0.60 * f + 0.08 * jit);
-    float ax = apex.x + (f - 0.5) * uSpread * 0.22;
+    float k = uCurve * (0.55 + 1.30 * f + 0.10 * jit);
+    float ax = apex.x + (f - 0.5) * uSpread * 0.18;
     float ay = apex.y + (f - 0.5) * uSpread * 0.14 + 0.012 * sin(t * 0.5 + fi);
     float dx = ps.x - ax;
     float yc = ay - k * dx * dx;
@@ -69,7 +69,7 @@ void main(){
     core += on * pw(w / (w + dd), 3.2);
     halo += on * pw(w * 11.0 / (w * 11.0 + dd), 1.9) * 0.085;
   }
-  float env = clamp(1.1 - 0.28 * (abs(ps.x) / max(ar * 0.5, 1.0)), 0.55, 1.0);
+  float env = mix(0.20, 1.0, sat((ps.x + 0.52) / 0.95));
   core *= env; halo *= env;
   vec3 col = uBg;
   col += uBase * halo * 1.5;
@@ -305,6 +305,8 @@ export default function FibreArc(props: Props) {
                 position: "relative",
                 overflow: "hidden",
                 background,
+                minWidth: 1200,
+                minHeight: 800,
                 width: typeof width === "number" && width > 0 ? width : "100%",
                 height: typeof height === "number" && height > 0 ? height : "100%",
                 ...style,
