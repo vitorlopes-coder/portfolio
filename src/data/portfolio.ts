@@ -65,8 +65,8 @@ export const portfolioData = {
         lines: [
           { type: "title", text: "// projeto & experiência: pedeAqui (SaaS)" },
           { type: "content", text: "Atuação no desenvolvimento de Backend do pedeAqui — um SaaS de vitrine virtual para Instagram com catálogo interativo de produtos e processamento de pedidos." },
-          { type: "content", text: "Responsável pela arquitetura de APIs, modelagem de banco de dados relacional e regras de negócio para vitrine e pedidos." },
-          { type: "list", text: "• Backend: Node.js, Express, PostgreSQL, TypeScript, REST APIs" },
+          { type: "content", text: "Responsável pela arquitetura de APIs, integração com Supabase e regras de negócio para vitrine e pedidos." },
+          { type: "list", text: "• Backend: Node.js, Express, Supabase, TypeScript, REST APIs" },
           { type: "list", text: "• Repositório: github.com/MailsonSousa88/pedeaqui" },
           { type: "status", text: "// clique no botão abaixo para abrir o repositório" },
         ],
@@ -106,13 +106,13 @@ export const portfolioData = {
       role: "Desenvolvimento Backend",
       logo: "/assets/projects/pedeAqui.png",
       githubUrl: "https://github.com/MailsonSousa88/pedeaqui",
-      description: "SaaS de vitrine virtual para Instagram desenvolvido para criar catálogos interativos de produtos, otimizar a experiência de compra e centralizar o recebimento e gestão de pedidos em tempo real.",
+      description: "SaaS de vitrine virtual para Instagram desenvolvido para criar catálogos interativos de produtos, otimizar a experiência de compra e centralizar o recebimento e gestão de pedidos integrado ao Supabase.",
       responsibilities: [
         "Arquitetura e desenvolvimento de APIs RESTful robustas e escaláveis",
-        "Modelagem relacional de dados e queries otimizadas em PostgreSQL",
+        "Integração e gerenciamento de banco de dados com Supabase",
         "Regras de negócio para pedidos, checkout simplificado e catálogo",
       ],
-      tags: ["Node.js", "Express", "PostgreSQL", "TypeScript", "REST API"],
+      tags: ["Node.js", "Express", "Supabase", "TypeScript", "REST API"],
     },
   ] as ProjectItem[],
   logPanel: {
