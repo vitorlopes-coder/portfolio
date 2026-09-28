@@ -44,7 +44,7 @@ export const SmoothScrollSliderSection: React.FC = () => {
           <span className="dot red" />
           <span className="dot yellow" />
           <span className="dot green" />
-          <span className="slider-title">SYS.GALLERY // SMOOTH_SCROLL_SLIDER</span>
+          <span className="slider-title">SYS.GALLERY // PROJETOS &amp; ENGENHARIA</span>
         </div>
         <div className="slider-status-badge">
           <span className="pulse-dot" />
@@ -69,8 +69,8 @@ export const SmoothScrollSliderSection: React.FC = () => {
         />
 
         <div className="slider-overlay-hint">
-          <span className="hint-tag">[ MOMENTUM SLIDER ]</span>
-          <span className="hint-text">Arraste horizontalmente ou use o mouse para navegar pelos projetos</span>
+          <span className="hint-tag">[ ENGENHARIA &amp; PROJETOS ]</span>
+          <span className="hint-text">Arraste horizontalmente para navegar pelas interfaces e projetos</span>
         </div>
       </div>
     </section>

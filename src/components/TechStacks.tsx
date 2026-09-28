@@ -24,6 +24,7 @@ export const TechStacks: React.FC = () => {
               title={tech.name}
             >
               <i className={tech.iconClass} />
+              <span className="stack-card-name">{tech.name}</span>
             </div>
           ))}
         </div>

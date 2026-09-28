@@ -776,8 +776,10 @@ body::after {
   min-width: 130px;
   height: 148px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   background: rgba(18, 9, 12, 0.65);
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -797,9 +799,21 @@ body::after {
 
 .stack-card i {
   color: var(--color-primary) !important;
-  font-size: 60px;
+  font-size: 50px;
   transition: all 0.3s;
   display: block;
+}
+
+.stack-card-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.stack-card:hover .stack-card-name {
+  color: var(--color-primary);
 }
 
 .stack-card:hover i {
