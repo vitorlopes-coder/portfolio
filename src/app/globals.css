@@ -1442,3 +1442,19 @@ body::after {
     padding: 14px 12px;
   }
 }
+
+.quick-nav {
+  max-width: 100%;
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .quick-nav {
+    border-radius: 18px;
+    gap: 6px 12px;
+  }
+  .nav-item {
+    padding: 4px 0;
+  }
+}
