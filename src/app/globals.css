@@ -1358,3 +1358,87 @@ body::after {
     align-items: flex-start;
   }
 }
+
+/* ==========================================================================
+   Mobile Refinements
+   ========================================================================== */
+.portfolio-container {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+  .tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+  .tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 12px;
+  }
+  .code-line {
+    overflow-wrap: anywhere;
+  }
+  .cmd-box {
+    padding: 12px 14px;
+  }
+  .cmd-text {
+    overflow-wrap: anywhere;
+  }
+  .contact-wrapper {
+    flex-wrap: wrap;
+  }
+  .social-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .project-brand-box {
+    height: 120px;
+  }
+  .footer-overlay-content {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 12px 8px;
+  }
+  .terminal-section {
+    padding: 22px 14px;
+  }
+  .headline {
+    font-size: 22px;
+  }
+  .sub-headline {
+    font-size: 14px;
+  }
+  .terrain-canvas-container {
+    height: 220px;
+  }
+  .photo-img-wrapper,
+  .ascii-canvas-wrapper {
+    height: 260px;
+  }
+  .slider-viewport {
+    height: 230px;
+  }
+  .carousel-viewport {
+    height: 270px;
+  }
+  .footer-arc-wrapper {
+    height: 200px;
+  }
+  .stack-card {
+    min-width: 112px;
+    height: 132px;
+  }
+  .editor-area {
+    padding: 14px 12px;
+  }
+}

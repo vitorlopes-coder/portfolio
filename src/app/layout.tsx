@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -32,6 +32,12 @@ export const metadata: Metadata = {
     'MCP',
   ],
   authors: [{ name: 'Vitor' }],
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#000000',
 };
 
 export default function RootLayout({
